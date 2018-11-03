@@ -24,3 +24,7 @@ yarn-error.log*
 
 # extra documents
 /doc
+
+# webstorm
+.idea
+
