@@ -87,4 +87,9 @@ class InfoTab extends Component {
         console.log("Error: ", error)
       })
   }
+
+  backToSearch = () => {
+    this.props.setClicked(false)
+    this.props.resetFilteredPlaces()
+  }
 }
