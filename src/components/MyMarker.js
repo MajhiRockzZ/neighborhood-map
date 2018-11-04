@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-import {Marker, InfoWindow} from 'react-google-map';
+import {Marker, InfoWindow} from 'react-google-maps';
+import Panorame from './Panorama';
 
 class MyMarker extends Component {
   state = {
