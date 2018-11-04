@@ -109,4 +109,11 @@ class InfoTab extends Component {
   getCoordinates = () => (
     <ListItem>Coordinates: ({this.state.coordinates[0]}, {this.state.coordinates[1]})</ListItem>
   )
+
+  getCategories = () => (
+    <ListItem>
+      Categories:
+      {this.state.categories.map((category) => (<div key={category.id}>{category.name}</div>))}
+    </ListItem>
+  )
 }
