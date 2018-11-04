@@ -112,3 +112,13 @@
   max-height: 93%;
   overflow: auto;
 }
+
+.inner-margin {
+  width: 90%;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.page-banner {
+  padding-top: 5px;
+}
