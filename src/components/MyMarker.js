@@ -6,22 +6,22 @@ class MyMarker extends Component {
   state = {
     isOpen: false,
     animationConstant: 0,
-  }
+  };
 
   onToggleOpen = () => {
     if (this.state.isOpen && (this.props.title === this.props.currentPlace)) {
-      this.props.setClicked(false)
-      this.props.setCurrentPlace('')
+      this.props.setClicked(false);
+      this.props.setCurrentPlace('');
       this.props.resetFilteredPlaces()
     } else if (!this.state.isOpen) {
-      this.props.setClicked(false) // allow for componentDidMount to be called again in InfoTab.js
-      this.props.setCurrentPlace(this.props.title)
+      this.props.setClicked(false);
+      this.props.setCurrentPlace(this.props.title);
       this.props.setClicked(true)
     }
     this.setState((prevState) => ({
       isOpen: !prevState.isOpen,
     }))
-  }
+  };
 
   render() {
     return (
