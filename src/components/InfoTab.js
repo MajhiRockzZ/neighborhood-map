@@ -135,4 +135,22 @@ class InfoTab extends Component {
   getStatus = () => (
     <ListItem>Current Status: {this.state.openStatus}</ListItem>
   )
+
+  getSchedule = () => {
+    // a reducer for formatting the contents of the queried scheduling array
+    let reducer = (accumulator, currentValue) => (accumulator + ', ' + currentValue.renderedTime)
+    return (
+      <ListItem>
+        Schedule:
+        {this.state.timeFrames.map((time) => {
+          let dayString = time.open.reduce(reducer, '').substring(2)
+          if (time.hasOwnProperty('includesToday') && time.includesToday) {
+            return ( <div key={time.days}><b>{time.days}: {dayString}</b></div> )
+          } else {
+            return ( <div key={time.days}>{time.days}: {dayString}</div> )
+          }
+        })}
+      </ListItem>
+    )
+  }
 }
