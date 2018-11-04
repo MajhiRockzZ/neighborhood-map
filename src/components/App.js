@@ -28,6 +28,12 @@ class App extends Component {
     })
   }
 
+  setMarkerQuery(newQuery) {
+    this.setState({
+      filterQuery: newQuery,
+    })
+  }
+
   setCurrentPlace(name) {
     this.setState({
       currentPlace: name,
