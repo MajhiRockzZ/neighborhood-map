@@ -131,4 +131,8 @@ class InfoTab extends Component {
       Website: <a href={this.state.url} target="_blank" rel="noopener noreferrer">{this.props.currentPlace}</a>
     </ListItem>
   )
+
+  getStatus = () => (
+    <ListItem>Current Status: {this.state.openStatus}</ListItem>
+  )
 }
