@@ -23,6 +23,6 @@ const MyMap = withScriptjs(withGoogleMap((props) =>
       )
     })}
   </GoogleMap>
-))
+));
 
 export default MyMap;
