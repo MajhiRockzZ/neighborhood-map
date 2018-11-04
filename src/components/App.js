@@ -5,6 +5,7 @@ import InfoTab from './InfoTab'
 import '../App.css'
 import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
 import escapeRegExp from 'escape-string-regexp'
+import { GOOGLE_MAP_API_KEY } from "../api/APIkey";
 
 class App extends Component {
   state = {
@@ -90,7 +91,7 @@ class App extends Component {
   }
 
   render() {
-    const api = `https://maps.googleapis.com/maps/api/js?key=AIzaSyBULcmVQScz-PlscSwmxFocRmLBboUTfWk&v=3.exp&libraries=geometry,drawing,places`;
+    const api = 'https://maps.googleapis.com/maps/api/js?key=' + GOOGLE_MAP_API_KEY + '&v=3.exp&libraries=geometry,drawing,places';
     return (
       <MuiThemeProvider>
         <div role="Application">
