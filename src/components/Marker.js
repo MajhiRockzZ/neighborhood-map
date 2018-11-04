@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Marker, InfoWindow} from 'react-google-maps';
+import {Marker, InfoWindow} from 'react-google-map';
 
 class Marker extends Component {
   state = {
