@@ -125,4 +125,10 @@ class InfoTab extends Component {
       {this.state.facebookContact && <div>Facebook: {this.state.facebookContact}</div>}
     </ListItem>
   )
+
+  getUrl = () => (
+    <ListItem tabIndex={0}>
+      Website: <a href={this.state.url} target="_blank" rel="noopener noreferrer">{this.props.currentPlace}</a>
+    </ListItem>
+  )
 }
