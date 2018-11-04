@@ -88,7 +88,7 @@ class App extends Component {
   }
 
   render() {
-    const api = `'https://maps.googleapis.com/maps/api/js?key=AIzaSyBULcmVQScz-PlscSwmxFocRmLBboUTfWk&v=3.exp&libraries=geometry,drawing,places`
+    const api = `https://maps.googleapis.com/maps/api/js?key=AIzaSyBULcmVQScz-PlscSwmxFocRmLBboUTfWk&v=3.exp&libraries=geometry,drawing,places`;
     return (
       <MuiThemeProvider theme={}>
         <div role="Application">
