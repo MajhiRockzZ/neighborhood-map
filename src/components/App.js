@@ -40,6 +40,12 @@ class App extends Component {
     })
   }
 
+  setAnimationConstant(animationType) {
+    this.setState({
+      animationConstant: animationType,
+    })
+  }
+
   resetFilteredPlaces() {
     this.setState({
       filteredPlaces: this.state.placeList
