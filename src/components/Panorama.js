@@ -14,7 +14,7 @@ const Panorama = compose(
   withGoogleMap
 )(props =>
   <GoogleMap defaultZoom={8} defaultCenter={props.position}>
-    <StreetViewPanorama defaultPosition={props.forStreetView} visible={}/>
+    <StreetViewPanorama defaultPosition={props.forStreetView} visible/>
   </GoogleMap>
 );
 
