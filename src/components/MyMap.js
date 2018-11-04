@@ -1,15 +1,15 @@
 import React from 'react';
-import Marker from './Marker';
+import MyMarker from './MyMarker';
 import {withScriptjs, withGoogleMap, GoogleMap} from 'react-google-map';
 
-const Map = withScriptjs(withGoogleMap((props) =>
+const MyMap = withScriptjs(withGoogleMap((props) =>
   <GoogleMap
     defaultZoom={props.zoom}
     defaultCenter={props.center}>
 
     {props.filteredPlaces.map((place) => {
       return (
-        <Marker
+        <MyMarker
           key={place.title}
           title={place.title}
           position={place.location}
@@ -25,4 +25,4 @@ const Map = withScriptjs(withGoogleMap((props) =>
   </GoogleMap>
 ));
 
-export default Map;
+export default MyMap;

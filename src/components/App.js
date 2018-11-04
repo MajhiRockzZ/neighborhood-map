@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import Map from './Map'
+import MyMap from './MyMap'
 import escapeRegExp from 'escape-string-regexp'
 import '../App.css';
 

@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Marker, InfoWindow} from 'react-google-map';
 
-class Marker extends Component {
+class MyMarker extends Component {
   state = {
     isOpen: false,
     animationConstant: 0,
@@ -42,4 +42,4 @@ class Marker extends Component {
   }
 }
 
-export default Marker
+export default MyMarker
