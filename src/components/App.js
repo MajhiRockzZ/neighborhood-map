@@ -108,8 +108,14 @@ class App extends Component {
                 setAnimationConstant={this.setAnimationConstant.bind(this)}
                 updateFilteredPlaces={this.updateFilteredPlaces.bind(this)}
               />
-            </form>
-            }
+            </form>}
+            {this.state.itemClicked &&
+            <div className="info-tab-order">
+              <InfoTab
+                setClicked={this.setClicked.bind(this)}
+                resetFilteredPlace={this.resetFilteredPlaces.bind(this)}
+                currentPlace={this.state.currentPlace}/>
+            </div>}
           </main>
         </div>
       </MuiThemeProvider>
