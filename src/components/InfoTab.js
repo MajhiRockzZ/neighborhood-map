@@ -145,9 +145,9 @@ class InfoTab extends Component {
         {this.state.timeFrames.map((time) => {
           let dayString = time.open.reduce(reducer, '').substring(2)
           if (time.hasOwnProperty('includesToday') && time.includesToday) {
-            return ( <div key={time.days}><b>{time.days}: {dayString}</b></div> )
+            return (<div key={time.days}><b>{time.days}: {dayString}</b></div>)
           } else {
-            return ( <div key={time.days}>{time.days}: {dayString}</div> )
+            return (<div key={time.days}>{time.days}: {dayString}</div>)
           }
         })}
       </ListItem>
@@ -163,12 +163,34 @@ class InfoTab extends Component {
         {this.state.popularTimes.map((time) => {
           let popularString = time.open.reduce(reducer, '').substring(2)
           if (time.hasOwnProperty('days') && (time.days === 'Today')) {
-            return ( <div key={time.days}><b>{time.days}: {popularString}</b></div> )
+            return (<div key={time.days}><b>{time.days}: {popularString}</b></div>)
           } else {
-            return ( <div key={time.days}>{time.days}: {popularString}</div> )
+            return (<div key={time.days}>{time.days}: {popularString}</div>)
           }
         })}
       </ListItem>
     )
   }
+
+  getList = () => (
+    <List>
+      {this.state.description && this.getDescription()}
+      {(this.state.address || this.state.location) && this.getAddress()}
+      {(this.state.coordinates.length === 2) && this.getCoordinates()}
+      {(this.state.categories.length > 0) && this.getCategories()}
+      {(this.state.phoneContact || this.state.twitterContact || this.state.facebookContact) && this.getContact()}
+      {this.state.url && this.getUrl()}
+      {this.state.openStatus && this.getStatus()}
+      {(this.state.timeFrames.length > 0) && this.getSchedule()}
+      {(this.state.popularTimes.length > 0) && this.getPopularTimes()}
+      {(this.state.rating >= 0.0) && <ListItem>Rating: {this.state.rating}/10</ListItem>}
+      {this.state.tip && (this.props.currentPlace !== 'Target') &&
+      <ListItem>One visitor had this to say: "{this.state.tip}"</ListItem>}
+      {this.state.menuUrl &&
+      <ListItem>Menu (provided courtesy of Foursquare): <a href={this.state.menuUrl} target="_blank"
+                                                           rel="noopener noreferrer">Menu</a></ListItem>}
+      {this.state.price && <ListItem>Price Tier: {this.state.price}</ListItem>}
+      {(this.state.likesCount >= 0) && <ListItem>{this.state.likesCount} <ThumbUp/></ListItem>}
+    </List>
+  )
 }
