@@ -116,6 +116,21 @@ class App extends Component {
                 resetFilteredPlace={this.resetFilteredPlaces.bind(this)}
                 currentPlace={this.state.currentPlace}/>
             </div>}
+            <MyMap
+              googleMapURL={api}
+              loadingElement={<div style={{height: `100%`, margin: `auto`, fontSize: `28px`}}>The map view is
+                loading.</div>}
+              containerElement={<div className="map-order"/>}
+              mapElement={<div style={{height: `100%`}}/>}
+              center={{lat: 23.336656, lng: 85.319276}}
+              zoom={14}
+              filteredPlaces={this.state.filteredPlaces}
+              setClicked={this.setClicked.bind(this)}
+              setCurrentPlace={this.setCurrentPlace.bind(this)}
+              currentPlace={this.state.currentPlace}
+              resetFilteredPlaces={this.resetFilteredPlaces.bind(this)}
+              animationConstant={this.state.animationConstant}
+            />
           </main>
         </div>
       </MuiThemeProvider>
