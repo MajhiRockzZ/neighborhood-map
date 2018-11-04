@@ -65,3 +65,16 @@
   margin-top: auto;
   margin-bottom: auto;
 }
+
+.location-style {
+  overflow: auto;
+  max-height: 93%;
+}
+
+.list-overrides:hover {
+  cursor: default;
+}
+
+.marker-title-style {
+  text-align: center;
+}
