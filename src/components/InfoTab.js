@@ -193,4 +193,25 @@ class InfoTab extends Component {
       {(this.state.likesCount >= 0) && <ListItem>{this.state.likesCount} <ThumbUp/></ListItem>}
     </List>
   )
+
+  render() {
+    return (
+      <div role="Application" className="search-format">
+        <header className="title-block">
+          <IconButton style={{marginTop: 'auto', marginBottom: 'auto'}} onClick={this.backToSearch} tooltip="Font Icon">
+            <ArrowBack />
+          </IconButton>
+          <div role="Banner" className="title-place">{this.props.currentPlace}</div>
+        </header>
+        {this.state.infoLoaded &&
+        <main className="location-style">
+          {this.state.imageSrc && <img className="image-dimensions" src={this.state.imageSrc} alt={this.props.currentPlace}/>}
+          <div className="inner-margin" role="Contentinfo">Information provided by <a href="https://foursquare.com/" target="_blank" rel="noopener noreferrer">Foursquare</a>:</div>
+          {this.getList()}
+        </main>
+        }
+        {!this.state.infoLoaded && <ErrorPage/>}
+      </div>
+    )
+  }
 }
