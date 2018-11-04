@@ -2,7 +2,7 @@ import React from 'react';
 import {withScriptjs, withGoogleMap, GoogleMap, StreetViewPanorama} from 'react-google-maps';
 import {compose, withProps} from 'recompose';
 
-const MyView = compose(
+const Panorama = compose(
   withProps({
     googleMapURL: 'https://maps.googleapis.com/maps/api/js?key=AIzaSyBULcmVQScz-PlscSwmxFocRmLBboUTfWk&v=3.exp&libraries=geometry,drawing,places',
     loadingElement: <div style={{height: `100%`}}/>,
@@ -17,4 +17,4 @@ const MyView = compose(
   </GoogleMap>
 );
 
-export default MyView;
+export default Panorama;
