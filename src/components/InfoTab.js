@@ -153,4 +153,22 @@ class InfoTab extends Component {
       </ListItem>
     )
   }
+
+  getPopularTimes = () => {
+    // a reducer for formatting the contents of the queried scheduling array
+    let reducer = (accumulator, currentValue) => (accumulator + ', ' + currentValue.renderedTime)
+    return (
+      <ListItem>
+        Popular Times:
+        {this.state.popularTimes.map((time) => {
+          let popularString = time.open.reduce(reducer, '').substring(2)
+          if (time.hasOwnProperty('days') && (time.days === 'Today')) {
+            return ( <div key={time.days}><b>{time.days}: {popularString}</b></div> )
+          } else {
+            return ( <div key={time.days}>{time.days}: {popularString}</div> )
+          }
+        })}
+      </ListItem>
+    )
+  }
 }
