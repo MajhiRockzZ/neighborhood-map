@@ -9,7 +9,8 @@
     "react-dom": "^16.6.0",
     "react-google-map": "^3.1.1",
     "react-google-maps": "^9.4.5",
-    "react-scripts": "2.1.1"
+    "react-scripts": "2.1.1",
+    "recompose": "latest"
   },
   "scripts": {
     "start": "react-scripts start",
