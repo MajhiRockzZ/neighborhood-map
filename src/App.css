@@ -14,8 +14,12 @@
   color: #fff;
 }
 
-.App-link {
-  color: #61dafb;
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
 }
 
 @keyframes App-logo-spin {
@@ -25,4 +29,10 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.app-format {
+  display: flex;
+  flex-direction: row;
+  height: 95vh;
 }
