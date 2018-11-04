@@ -28,3 +28,5 @@ yarn-error.log*
 # webstorm
 .idea
 
+# APIkey
+/src/api/
