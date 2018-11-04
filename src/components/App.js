@@ -1,8 +1,10 @@
 import React, {Component} from 'react';
 import MyMap from './MyMap'
+import Search from './Search'
+import InfoTab from './InfoTab'
+import '../App.css'
 import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
 import escapeRegExp from 'escape-string-regexp'
-import '../App.css';
 
 class App extends Component {
   state = {
