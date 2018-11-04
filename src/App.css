@@ -158,3 +158,9 @@
     padding-bottom: 5px;
   }
 }
+
+@media screen and (max-width: 350px) {
+  .welcome-sign {
+    height: 10vh;
+  }
+}
