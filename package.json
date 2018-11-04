@@ -12,7 +12,9 @@
     "react-google-map-street-view": "^1.1.0",
     "react-google-maps": "^9.4.5",
     "react-scripts": "2.1.1",
-    "sort-by": "^1.2.0"
+    "sort-by": "^1.2.0",
+    "escape-string-regexp": "latest",
+    "recompose": "latest"
   },
   "scripts": {
     "start": "react-scripts start",
