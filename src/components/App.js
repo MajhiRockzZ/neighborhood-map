@@ -92,7 +92,7 @@ class App extends Component {
   render() {
     const api = `https://maps.googleapis.com/maps/api/js?key=AIzaSyBULcmVQScz-PlscSwmxFocRmLBboUTfWk&v=3.exp&libraries=geometry,drawing,places`;
     return (
-      <MuiThemeProvider theme={}>
+      <MuiThemeProvider>
         <div role="Application">
           <header className="welcome-sign">
             <div className="page-banner" role="banner">Come Visit Ranchi</div>
@@ -101,7 +101,12 @@ class App extends Component {
             {!this.state.itemClicked &&
             <form className="search-order">
               <Search
-
+                placeList={this.state.placeList}
+                setCurrentPlace={this.setCurrentPlace.bind(this)}
+                setClicked={this.setClicked.bind(this)}
+                setMarkerQuery={this.setMarkerQuery.bind(this)}
+                setAnimationConstant={this.setAnimationConstant.bind(this)}
+                updateFilteredPlaces={this.updateFilteredPlaces.bind(this)}
               />
             </form>
             }
