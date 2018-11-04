@@ -122,3 +122,39 @@
 .page-banner {
   padding-top: 5px;
 }
+
+@media screen and (max-width: 600px) {
+  .app-format {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .map-order {
+    order: 0;
+    height: 50vh;
+  }
+
+  .search-order {
+    order: 1;
+    width: 100%;
+  }
+
+  .info-tab-order {
+    order: 1;
+    width: 100%;
+  }
+
+  .list-style {
+    overflow: visible;
+  }
+
+  .location-style {
+    overflow: visible;
+  }
+
+  .welcome-sign {
+    height: 5vh;
+    padding-top: 10px;
+    padding-bottom: 5px;
+  }
+}
