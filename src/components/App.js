@@ -124,7 +124,7 @@ class App extends Component {
                 loading.</div>}
               containerElement={<div className="map-order"/>}
               mapElement={<div style={{height: `100%`}}/>}
-              center={{lat: 33.888428, lng: -118.393534}}
+              center={{lat: 23.336656, lng: 85.319276}}
               zoom={14}
               filteredPlaces={this.state.filteredPlaces}
               setClicked={this.setClicked.bind(this)}
