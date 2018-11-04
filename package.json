@@ -3,11 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "google-map-react": "^1.0.9",
+    "hoek": "^6.0.1",
     "@material-ui/core": "^3.3.2",
-    "escape-string-regexp": "^1.0.5",
     "react": "^16.6.0",
+    "escape-string-regexp": "^1.0.5",
     "react-dom": "^16.6.0",
-    "react-google-map": "^3.1.1",
     "react-google-maps": "^9.4.5",
     "react-scripts": "2.1.1",
     "recompose": "latest"
