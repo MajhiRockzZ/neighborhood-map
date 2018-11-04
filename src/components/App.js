@@ -17,11 +17,17 @@ class App extends Component {
     currentPlace: '',
     filteredPlaces: [],
     animationConstant: 0,
-  }
+  };
 
   setClicked(status) {
     this.setState({
       itemClicked: status,
+    })
+  }
+
+  setCurrentPlace(name) {
+    this.setState({
+      currentPlace: name,
     })
   }
 }
