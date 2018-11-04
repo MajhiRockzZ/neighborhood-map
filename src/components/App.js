@@ -97,7 +97,7 @@ class App extends Component {
       <MuiThemeProvider>
         <div role="Application">
           <header className="welcome-sign">
-            <div className="page-banner" role="banner">Come Visit Manhattan Beach, California!</div>
+            <div className="page-banner" role="banner">Welcome to Ranchi !</div>
           </header>
           <main className="app-format">
             {!this.state.itemClicked &&
