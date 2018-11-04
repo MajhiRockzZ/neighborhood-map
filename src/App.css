@@ -78,3 +78,37 @@
 .marker-title-style {
   text-align: center;
 }
+
+.welcome-sign {
+  height: 5vh;
+  text-align: center;
+  background: black;
+  color: white;
+  font: bold 1.2em "Fira Sans", serif;
+  font-weight: 600;
+}
+
+.search-order, .info-tab-order {
+  width: 30%;
+}
+
+.map-order {
+  width: 100%;
+  height: 95vh;
+}
+
+.list-style {
+  max-height: 91%;
+  overflow: auto;
+}
+
+.error-image {
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.error-page {
+  max-height: 93%;
+  overflow: auto;
+}
