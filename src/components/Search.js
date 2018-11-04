@@ -10,13 +10,18 @@ import BeachAccess from 'material-ui/svg-icons/places/beach-access'
 import Cake from 'material-ui/svg-icons/social/cake'
 import School from 'material-ui/svg-icons/social/school'
 
-class Search extends Components {
-  state {
-  query: '',
- }
+class Search extends Component{
+
+  state = {
+    query: ''
+  };
 
  updateQuery = (query) => {
-
+    this.setState({
+      query: query
+    });
+   this.props.setMarkerQuery(query);
+   this.props.updateFilteredPlaces(query)
  }
 
 
