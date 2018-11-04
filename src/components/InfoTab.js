@@ -92,4 +92,8 @@ class InfoTab extends Component {
     this.props.setClicked(false)
     this.props.resetFilteredPlaces()
   }
+
+  getDescription = () => (
+    <ListItem primaryText={<div>Description: {this.state.description}</div>}/>
+  )
 }
