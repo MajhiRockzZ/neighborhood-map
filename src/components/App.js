@@ -19,6 +19,11 @@ class App extends Component {
     animationConstant: 0,
   }
 
+  setClicked(status) {
+    this.setState({
+      itemClicked: status,
+    })
+  }
 }
 
 export default App;
