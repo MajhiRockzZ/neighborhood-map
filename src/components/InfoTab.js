@@ -116,4 +116,13 @@ class InfoTab extends Component {
       {this.state.categories.map((category) => (<div key={category.id}>{category.name}</div>))}
     </ListItem>
   )
+
+  getContact = () => (
+    <ListItem>
+      Contact:
+      {this.state.phoneContact && <div>Phone: {this.state.phoneContact}</div>}
+      {this.state.twitterContact && <div>Twitter: {this.state.twitterContact}</div>}
+      {this.state.facebookContact && <div>Facebook: {this.state.facebookContact}</div>}
+    </ListItem>
+  )
 }
