@@ -215,3 +215,5 @@ class InfoTab extends Component {
     )
   }
 }
+
+export default InfoTab
