@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import MyMap from './MyMap'
+import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
 import escapeRegExp from 'escape-string-regexp'
 import '../App.css';
 
@@ -85,6 +86,29 @@ class App extends Component {
       filteredPlaces: this.state.placeList.filter((place) => match.test(place.title))
     })
   }
+
+  render() {
+    const api = `'https://maps.googleapis.com/maps/api/js?key=AIzaSyBULcmVQScz-PlscSwmxFocRmLBboUTfWk&v=3.exp&libraries=geometry,drawing,places`
+    return (
+      <MuiThemeProvider theme={}>
+        <div role="Application">
+          <header className="welcome-sign">
+            <div className="page-banner" role="banner">Come Visit Ranchi</div>
+          </header>
+          <main className="app-format">
+            {!this.state.itemClicked &&
+            <form className="search-order">
+              <Search
+
+              />
+            </form>
+            }
+          </main>
+        </div>
+      </MuiThemeProvider>
+    );
+  }
+
 }
 
 export default App;
