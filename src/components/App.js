@@ -1,11 +1,11 @@
-import React, {Component} from 'react';
+import React, {Component} from 'react'
 import MyMap from './MyMap'
 import Search from './Search'
 import InfoTab from './InfoTab'
 import '../App.css'
-import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import escapeRegExp from 'escape-string-regexp'
-import { GOOGLE_MAP_API_KEY } from "../api/APIkey";
+import {GOOGLE_MAP_API_KEY} from '../api/APIkey'
 
 class App extends Component {
   state = {
@@ -47,7 +47,7 @@ class App extends Component {
     currentPlace: '',
     filteredPlaces: [],
     animationConstant: 0,
-  };
+  }
 
   componentDidMount() {
     this.resetFilteredPlaces()
@@ -71,6 +71,7 @@ class App extends Component {
     })
   }
 
+
   setAnimationConstant(animationType) {
     this.setState({
       animationConstant: animationType,
@@ -79,30 +80,30 @@ class App extends Component {
 
   resetFilteredPlaces() {
     this.setState({
-      filteredPlaces: this.state.placeList
+      filteredPlaces: this.state.placesList
     })
   }
 
   updateFilteredPlaces(query) {
     const match = new RegExp(escapeRegExp(query), 'i')
     this.setState({
-      filteredPlaces: this.state.placeList.filter((place) => match.test(place.title))
+      filteredPlaces: this.state.placesList.filter((place) => match.test(place.title))
     })
   }
 
   render() {
-    const api = 'https://maps.googleapis.com/maps/api/js?key=' + GOOGLE_MAP_API_KEY + '&v=3.exp&libraries=geometry,drawing,places';
+    const api = 'https://maps.googleapis.com/maps/api/js?key=' + GOOGLE_MAP_API_KEY + '&v=3.exp&libraries=geometry,drawing,places'
     return (
       <MuiThemeProvider>
         <div role="Application">
           <header className="welcome-sign">
-            <div className="page-banner" role="banner">Come Visit Ranchi</div>
+            <div className="page-banner" role="banner">Come Visit Manhattan Beach, California!</div>
           </header>
           <main className="app-format">
             {!this.state.itemClicked &&
             <form className="search-order">
               <Search
-                placeList={this.state.placeList}
+                placesList={this.state.placesList}
                 setCurrentPlace={this.setCurrentPlace.bind(this)}
                 setClicked={this.setClicked.bind(this)}
                 setMarkerQuery={this.setMarkerQuery.bind(this)}
@@ -111,10 +112,10 @@ class App extends Component {
               />
             </form>}
             {this.state.itemClicked &&
-            <div className="info-tab-order">
+            <div role="Contentinfo" className="info-tab-order">
               <InfoTab
                 setClicked={this.setClicked.bind(this)}
-                resetFilteredPlace={this.resetFilteredPlaces.bind(this)}
+                resetFilteredPlaces={this.resetFilteredPlaces.bind(this)}
                 currentPlace={this.state.currentPlace}/>
             </div>}
             <MyMap
@@ -123,7 +124,7 @@ class App extends Component {
                 loading.</div>}
               containerElement={<div className="map-order"/>}
               mapElement={<div style={{height: `100%`}}/>}
-              center={{lat: 23.336656, lng: 85.319276}}
+              center={{lat: 33.888428, lng: -118.393534}}
               zoom={14}
               filteredPlaces={this.state.filteredPlaces}
               setClicked={this.setClicked.bind(this)}
@@ -137,7 +138,6 @@ class App extends Component {
       </MuiThemeProvider>
     );
   }
-
 }
 
 export default App;

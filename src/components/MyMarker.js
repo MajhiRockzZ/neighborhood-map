@@ -1,25 +1,25 @@
-import React, {Component} from 'react';
-import {Marker, InfoWindow} from 'react-google-maps';
-import Panorame from './Panorama';
+import React, {Component} from 'react'
+import {Marker, InfoWindow} from 'react-google-maps'
+import Panorama from './Panorama'
 
 class MyMarker extends Component {
   state = {
     isOpen: false,
     animationConstant: 0,
-  };
+  }
 
   onToggleOpen = () => {
-    if (this.state.isOpen && (this.props.title === this.props.currentPlaces)) {
+    if (this.state.isOpen && (this.props.title === this.props.currentPlace)) {
       this.props.setClicked(false)
       this.props.setCurrentPlace('')
       this.props.resetFilteredPlaces()
     } else if (!this.state.isOpen) {
-      this.props.setClicked(false)
+      this.props.setClicked(false) // allow for componentDidMount to be called again in InfoTab.js
       this.props.setCurrentPlace(this.props.title)
       this.props.setClicked(true)
     }
     this.setState((prevState) => ({
-      isOpen: !prevState.isOpen
+      isOpen: !prevState.isOpen,
     }))
   }
 
@@ -36,7 +36,7 @@ class MyMarker extends Component {
         <InfoWindow onCloseClick={this.onToggleOpen}>
           <div role="Complementary" style={{width: `300px`, height: `300px`}}>
             <div role="Banner" className="marker-title-style"><b>{this.props.title}</b></div>
-            <Panorame position={this.props.position} forStreetView={this.props.forStreetView}/>
+            <Panorama position={this.props.position} forStreetView={this.props.forStreetView}/>
           </div>
         </InfoWindow>}
       </Marker>
@@ -44,4 +44,4 @@ class MyMarker extends Component {
   }
 }
 
-export default MyMarker
+export default MyMarker;

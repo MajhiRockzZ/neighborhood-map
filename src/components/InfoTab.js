@@ -1,10 +1,10 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 import IconButton from 'material-ui/IconButton'
 import ArrowBack from 'material-ui/svg-icons/navigation/arrow-back'
-import {List, ListItem} from 'material-ui/List'
+import { List, ListItem } from 'material-ui/List'
 import ThumbUp from 'material-ui/svg-icons/action/thumb-up'
 import ErrorPage from './ErrorPage'
-import {FOURSQUARE_CLIENT_ID, FOURSQUARE_CLIENT_SECRET} from "../api/APIkey";
+import { FOURSQUARE_CLIENT_ID, FOURSQUARE_CLIENT_SECRET } from '../api/APIkey'
 
 class InfoTab extends Component {
   state = {
@@ -31,7 +31,7 @@ class InfoTab extends Component {
     infoLoaded: true,
   }
 
-  componentDidCatch() {
+  componentDidMount() {
     fetch(`https://api.foursquare.com/v2/venues/search?ll=33.888928,-118.393534&client_id=${FOURSQUARE_CLIENT_ID}&client_secret=${FOURSQUARE_CLIENT_SECRET}&v=20130815&near&query=${this.props.currentPlace}&limit=1`)
       .then((res) => res.text())
       .then((text) => {
@@ -42,6 +42,18 @@ class InfoTab extends Component {
           coordinates: [formattedResponse.location.lat, formattedResponse.location.lng]
         })
         return formattedResponse.id
+      })
+      .then((id) => {
+        fetch(`https://api.foursquare.com/v2/venues/${id}/photos?client_id=${FOURSQUARE_CLIENT_ID}&client_secret=${FOURSQUARE_CLIENT_SECRET}&v=20130815`)
+          .then((res) => res.text())
+          .then((text) => {
+            let formattedNewResponse = JSON.parse(text)
+            let imageInfo = formattedNewResponse.response.photos.items[0]
+            this.setState({
+              imageSrc: imageInfo.prefix + 'original' + imageInfo.suffix
+            })
+          })
+        return id
       })
       .then((id) => {
         fetch(`https://api.foursquare.com/v2/venues/${id}?client_id=${FOURSQUARE_CLIENT_ID}&client_secret=${FOURSQUARE_CLIENT_SECRET}&v=20130815`)
@@ -94,15 +106,14 @@ class InfoTab extends Component {
   }
 
   getDescription = () => (
-    <ListItem primaryText={<div>Description: {this.state.description}</div>}/>
+    <ListItem primaryText={<div>Description: {this.state.description}</div>}></ListItem>
   )
 
   getAddress = () => (
     <ListItem>
       {!this.state.location && <div>Address: {this.state.address}</div>}
       {this.state.formattedAddress && <div>Location: {this.state.formattedAddress}</div>}
-      {this.state.location && !this.state.address && !this.state.formattedAddress &&
-      <div>Location: {this.state.location}</div>}
+      {this.state.location && !this.state.address && !this.state.formattedAddress && <div>Location: {this.state.location}</div>}
     </ListItem>
   )
 
@@ -145,9 +156,9 @@ class InfoTab extends Component {
         {this.state.timeFrames.map((time) => {
           let dayString = time.open.reduce(reducer, '').substring(2)
           if (time.hasOwnProperty('includesToday') && time.includesToday) {
-            return (<div key={time.days}><b>{time.days}: {dayString}</b></div>)
+            return ( <div key={time.days}><b>{time.days}: {dayString}</b></div> )
           } else {
-            return (<div key={time.days}>{time.days}: {dayString}</div>)
+            return ( <div key={time.days}>{time.days}: {dayString}</div> )
           }
         })}
       </ListItem>
@@ -163,9 +174,9 @@ class InfoTab extends Component {
         {this.state.popularTimes.map((time) => {
           let popularString = time.open.reduce(reducer, '').substring(2)
           if (time.hasOwnProperty('days') && (time.days === 'Today')) {
-            return (<div key={time.days}><b>{time.days}: {popularString}</b></div>)
+            return ( <div key={time.days}><b>{time.days}: {popularString}</b></div> )
           } else {
-            return (<div key={time.days}>{time.days}: {popularString}</div>)
+            return ( <div key={time.days}>{time.days}: {popularString}</div> )
           }
         })}
       </ListItem>
@@ -184,13 +195,10 @@ class InfoTab extends Component {
       {(this.state.timeFrames.length > 0) && this.getSchedule()}
       {(this.state.popularTimes.length > 0) && this.getPopularTimes()}
       {(this.state.rating >= 0.0) && <ListItem>Rating: {this.state.rating}/10</ListItem>}
-      {this.state.tip && (this.props.currentPlace !== 'Target') &&
-      <ListItem>One visitor had this to say: "{this.state.tip}"</ListItem>}
-      {this.state.menuUrl &&
-      <ListItem>Menu (provided courtesy of Foursquare): <a href={this.state.menuUrl} target="_blank"
-                                                           rel="noopener noreferrer">Menu</a></ListItem>}
+      {this.state.tip && (this.props.currentPlace !== 'Target') && <ListItem>One visitor had this to say: "{this.state.tip}"</ListItem>}
+      {this.state.menuUrl && <ListItem>Menu (provided courtesy of Foursquare): <a href={this.state.menuUrl} target="_blank" rel="noopener noreferrer">Menu</a></ListItem>}
       {this.state.price && <ListItem>Price Tier: {this.state.price}</ListItem>}
-      {(this.state.likesCount >= 0) && <ListItem>{this.state.likesCount} <ThumbUp/></ListItem>}
+      {(this.state.likesCount >= 0) && <ListItem>{this.state.likesCount} <ThumbUp /></ListItem>}
     </List>
   )
 

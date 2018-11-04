@@ -11,36 +11,33 @@ import Cake from 'material-ui/svg-icons/social/cake'
 import School from 'material-ui/svg-icons/social/school'
 
 class Search extends Component {
-
   state = {
-    query: ''
-  };
+    query: '',
+  }
 
   updateQuery = (query) => {
     this.setState({
       query: query
-    });
-    this.props.setMarkerQuery(query);
+    })
+    this.props.setMarkerQuery(query)
     this.props.updateFilteredPlaces(query)
   }
 
-
   render() {
-    let showingPlaces;
-    let {query} = this.state;
-    let {placeList} = this.props;
+    let showingPlaces
+    let {query} = this.state
+    let {placesList} = this.props
     if (query) {
-      const match = new RegExp(escapeRegExp(query), 'i');
-      showingPlaces = placeList.filter((place) => match.test(place.title))
+      const match = new RegExp(escapeRegExp(query), 'i')
+      showingPlaces = placesList.filter((place) => match.test(place.title))
     } else {
-      showingPlaces = placeList
+      showingPlaces = placesList
     }
-
-    showingPlaces.sort(sortBy('title'));
+    showingPlaces.sort(sortBy('title'))
     return (
       <div role="Menu" className="search-format">
         <input
-          className="search-locations"
+          className='search-locations'
           type='text'
           placeholder='Search'
           value={query}
