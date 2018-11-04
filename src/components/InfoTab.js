@@ -105,4 +105,8 @@ class InfoTab extends Component {
       <div>Location: {this.state.location}</div>}
     </ListItem>
   )
+
+  getCoordinates = () => (
+    <ListItem>Coordinates: ({this.state.coordinates[0]}, {this.state.coordinates[1]})</ListItem>
+  )
 }
