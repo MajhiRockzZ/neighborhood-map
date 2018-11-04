@@ -19,6 +19,10 @@ class App extends Component {
     animationConstant: 0,
   };
 
+  componentDidMount() {
+    this.resetFilteredPlaces()
+  }
+
   setClicked(status) {
     this.setState({
       itemClicked: status,
@@ -28,6 +32,12 @@ class App extends Component {
   setCurrentPlace(name) {
     this.setState({
       currentPlace: name,
+    })
+  }
+
+  resetFilteredPlaces() {
+    this.setState({
+      filteredPlaces: this.state.placeList
     })
   }
 }
