@@ -9,7 +9,7 @@ import {GOOGLE_MAP_API_KEY} from '../api/APIkey'
 
 class App extends Component {
   state = {
-    placeList: [
+    placesList: [
       {
         title: "Bhagwan Birsa Biological Park",
         placeType: "park",
@@ -47,7 +47,7 @@ class App extends Component {
     currentPlace: '',
     filteredPlaces: [],
     animationConstant: 0,
-  }
+  };
 
   componentDidMount() {
     this.resetFilteredPlaces()
@@ -85,14 +85,14 @@ class App extends Component {
   }
 
   updateFilteredPlaces(query) {
-    const match = new RegExp(escapeRegExp(query), 'i')
+    const match = new RegExp(escapeRegExp(query), 'i');
     this.setState({
       filteredPlaces: this.state.placesList.filter((place) => match.test(place.title))
     })
   }
 
   render() {
-    const api = 'https://maps.googleapis.com/maps/api/js?key=' + GOOGLE_MAP_API_KEY + '&v=3.exp&libraries=geometry,drawing,places'
+    const api = 'https://maps.googleapis.com/maps/api/js?key=' + GOOGLE_MAP_API_KEY + '&v=3.exp&libraries=geometry,drawing,places';
     return (
       <MuiThemeProvider>
         <div role="Application">
