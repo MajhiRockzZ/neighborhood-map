@@ -54,3 +54,14 @@
 .image-dimensions {
   width: 100%;
 }
+
+.title-block {
+  display: flex;
+  flex-direction: row;
+  min-height: 7%;
+}
+
+.title-place {
+  margin-top: auto;
+  margin-bottom: auto;
+}
