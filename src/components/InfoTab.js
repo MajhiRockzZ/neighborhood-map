@@ -96,4 +96,13 @@ class InfoTab extends Component {
   getDescription = () => (
     <ListItem primaryText={<div>Description: {this.state.description}</div>}/>
   )
+
+  getAddress = () => (
+    <ListItem>
+      {!this.state.location && <div>Address: {this.state.address}</div>}
+      {this.state.formattedAddress && <div>Location: {this.state.formattedAddress}</div>}
+      {this.state.location && !this.state.address && !this.state.formattedAddress &&
+      <div>Location: {this.state.location}</div>}
+    </ListItem>
+  )
 }
