@@ -36,3 +36,17 @@
   flex-direction: row;
   height: 95vh;
 }
+
+.search-format {
+  width: 100%;
+  height: 94vh;
+  word-wrap: break-word;
+}
+
+.search-locations {
+  width: 92%;
+  padding: 10px 3% 10px 3%;
+  background-size: 1.2em;
+  font-size: 1.2em;
+  max-height: 10%;
+}
