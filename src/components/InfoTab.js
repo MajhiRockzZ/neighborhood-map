@@ -1,10 +1,10 @@
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 import IconButton from 'material-ui/IconButton'
 import ArrowBack from 'material-ui/svg-icons/navigation/arrow-back'
-import { List, ListItem } from 'material-ui/List'
+import {List, ListItem} from 'material-ui/List'
 import ThumbUp from 'material-ui/svg-icons/action/thumb-up'
 import ErrorPage from './ErrorPage'
-import { FOURSQUARE_CLIENT_ID, FOURSQUARE_CLIENT_SECRET } from '../api/APIkey'
+import {FOURSQUARE_CLIENT_ID, FOURSQUARE_CLIENT_SECRET} from '../api/APIkey'
 
 class InfoTab extends Component {
   state = {
@@ -32,7 +32,7 @@ class InfoTab extends Component {
   }
 
   componentDidMount() {
-    fetch(`https://api.foursquare.com/v2/venues/search?ll=23.3441,85.309562 &client_id=${FOURSQUARE_CLIENT_ID}&client_secret=${FOURSQUARE_CLIENT_SECRET}&v=20130815&near&query=${this.props.currentPlace}&limit=1`)
+    fetch(`https://api.foursquare.com/v2/venues/search?ll=23.375153,85.335574&client_id=${FOURSQUARE_CLIENT_ID}&client_secret=${FOURSQUARE_CLIENT_SECRET}&v=20130815&near&query=${this.props.currentPlace}&limit=1`)
       .then((res) => res.text())
       .then((text) => {
         let formattedResponse = JSON.parse(text).response.venues[0];
@@ -113,7 +113,8 @@ class InfoTab extends Component {
     <ListItem>
       {!this.state.location && <div>Address: {this.state.address}</div>}
       {this.state.formattedAddress && <div>Location: {this.state.formattedAddress}</div>}
-      {this.state.location && !this.state.address && !this.state.formattedAddress && <div>Location: {this.state.location}</div>}
+      {this.state.location && !this.state.address && !this.state.formattedAddress &&
+      <div>Location: {this.state.location}</div>}
     </ListItem>
   )
 
@@ -148,7 +149,6 @@ class InfoTab extends Component {
   )
 
   getSchedule = () => {
-    // a reducer for formatting the contents of the queried scheduling array
     let reducer = (accumulator, currentValue) => (accumulator + ', ' + currentValue.renderedTime)
     return (
       <ListItem>
@@ -156,9 +156,9 @@ class InfoTab extends Component {
         {this.state.timeFrames.map((time) => {
           let dayString = time.open.reduce(reducer, '').substring(2)
           if (time.hasOwnProperty('includesToday') && time.includesToday) {
-            return ( <div key={time.days}><b>{time.days}: {dayString}</b></div> )
+            return (<div key={time.days}><b>{time.days}: {dayString}</b></div>)
           } else {
-            return ( <div key={time.days}>{time.days}: {dayString}</div> )
+            return (<div key={time.days}>{time.days}: {dayString}</div>)
           }
         })}
       </ListItem>
@@ -174,9 +174,9 @@ class InfoTab extends Component {
         {this.state.popularTimes.map((time) => {
           let popularString = time.open.reduce(reducer, '').substring(2)
           if (time.hasOwnProperty('days') && (time.days === 'Today')) {
-            return ( <div key={time.days}><b>{time.days}: {popularString}</b></div> )
+            return (<div key={time.days}><b>{time.days}: {popularString}</b></div>)
           } else {
-            return ( <div key={time.days}>{time.days}: {popularString}</div> )
+            return (<div key={time.days}>{time.days}: {popularString}</div>)
           }
         })}
       </ListItem>
@@ -195,10 +195,13 @@ class InfoTab extends Component {
       {(this.state.timeFrames.length > 0) && this.getSchedule()}
       {(this.state.popularTimes.length > 0) && this.getPopularTimes()}
       {(this.state.rating >= 0.0) && <ListItem>Rating: {this.state.rating}/10</ListItem>}
-      {this.state.tip && (this.props.currentPlace !== 'Target') && <ListItem>One visitor had this to say: "{this.state.tip}"</ListItem>}
-      {this.state.menuUrl && <ListItem>Menu (provided courtesy of Foursquare): <a href={this.state.menuUrl} target="_blank" rel="noopener noreferrer">Menu</a></ListItem>}
+      {this.state.tip && (this.props.currentPlace !== 'Target') &&
+      <ListItem>One visitor had this to say: "{this.state.tip}"</ListItem>}
+      {this.state.menuUrl &&
+      <ListItem>Menu (provided courtesy of Foursquare): <a href={this.state.menuUrl} target="_blank"
+                                                           rel="noopener noreferrer">Menu</a></ListItem>}
       {this.state.price && <ListItem>Price Tier: {this.state.price}</ListItem>}
-      {(this.state.likesCount >= 0) && <ListItem>{this.state.likesCount} <ThumbUp /></ListItem>}
+      {(this.state.likesCount >= 0) && <ListItem>{this.state.likesCount} <ThumbUp/></ListItem>}
     </List>
   )
 
@@ -207,14 +210,18 @@ class InfoTab extends Component {
       <div role="Application" className="search-format">
         <header className="title-block">
           <IconButton style={{marginTop: 'auto', marginBottom: 'auto'}} onClick={this.backToSearch} tooltip="Font Icon">
-            <ArrowBack />
+            <ArrowBack/>
           </IconButton>
           <div role="Banner" className="title-place">{this.props.currentPlace}</div>
         </header>
         {this.state.infoLoaded &&
         <main className="location-style">
-          {this.state.imageSrc && <img className="image-dimensions" src={this.state.imageSrc} alt={this.props.currentPlace}/>}
-          <div className="inner-margin" role="Contentinfo">Information provided by <a href="https://foursquare.com/" target="_blank" rel="noopener noreferrer">Foursquare</a>:</div>
+          {this.state.imageSrc &&
+          <img className="image-dimensions" src={this.state.imageSrc} alt={this.props.currentPlace}/>}
+          <div className="inner-margin" role="Contentinfo">Information provided by <a href="https://foursquare.com/"
+                                                                                      target="_blank"
+                                                                                      rel="noopener noreferrer">Foursquare</a>:
+          </div>
           {this.getList()}
         </main>
         }

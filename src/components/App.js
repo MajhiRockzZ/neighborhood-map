@@ -12,19 +12,19 @@ class App extends Component {
     placesList: [
       {
         title: "JD Hi Street Mall",
-        placeType: "shopping_mall",
+        placeType: "shopping",
         location: {lat: 23.357947, lng: 85.324898},
         forStreetView: {lat: 23.357947, lng: 85.324898}
       },
       {
         title: "Fun Cinema",
-        placeType: "movie_theater",
+        placeType: "movie",
         location: {lat: 23.333093, lng: 85.317121},
         forStreetView: {lat: 23.333093, lng: 85.317121}
       },
       {
         title: "JSCA International Stadium Complex",
-        placeType: "point_of_interest",
+        placeType: "sports",
         location: {lat: 23.310201, lng: 85.274835},
         forStreetView: {lat: 23.310201, lng: 85.274835}
       },
@@ -36,7 +36,7 @@ class App extends Component {
       },
       {
         title: "Ranchi Lake",
-        placeType: "natural_feature",
+        placeType: "nature",
         location: {lat: 23.368364, lng: 85.318145},
         forStreetView: {lat: 23.368364, lng: 85.318145}
       },
