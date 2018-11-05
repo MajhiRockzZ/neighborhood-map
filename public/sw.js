@@ -16,8 +16,27 @@ self.addEventListener('install', function (event) {
   ]
 
   event.waitUntil(
-    caches.open(staticCacheName).then(function (cache) {
+    caches.open(staticCacheName).then(function(cache) {
       return cache.addAll(urlsToCache);
     })
-  )
+  );
+});
+
+self.addEventListener('fetch', function(event) {
+  event.respondWith(
+    caches.match(event.request).then(function(response) {
+      if (response) {
+        return response;
+      }
+      return fetch(event.request).then(function(response) {
+        // check whether event request was resolved successfully
+        if (response.status !== 404) {
+          return caches.open(staticCacheName).then(function(cache) {
+            cache.put(event.request.url, response.clone());
+            return response;
+          });
+        }
+      });
+    })
+  );
 });
