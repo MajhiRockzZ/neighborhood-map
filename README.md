@@ -1,4 +1,4 @@
-<img src="src/logo.svg" align="center" height="100" width="100" />
+<img src="src/logo.svg" align="center" height="200" width="200" />
 
 # Neighborhood Map (React)
 
