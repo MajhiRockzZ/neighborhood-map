@@ -1,3 +1,8 @@
+@import url('https://fonts.googleapis.com/css?family=Work+Sans');
+
+/* ----------------------------- */
+/* DEFAULT STYLE*/
+/* ----------------------------- */
 .App {
   text-align: center;
 }
@@ -31,6 +36,10 @@
   }
 }
 
+
+/* ----------------------------- */
+/* CUSTOM STYLE*/
+/* ----------------------------- */
 .app-format {
   display: flex;
   flex-direction: row;
@@ -41,6 +50,7 @@
   width: 100%;
   height: 94vh;
   word-wrap: break-word;
+
 }
 
 .search-locations {
@@ -82,9 +92,9 @@
 .welcome-sign {
   height: 5vh;
   text-align: center;
-  background: black;
-  color: white;
-  font: bold 1.2em "Fira Sans", serif;
+  background: #2c3e50;
+  color: #fff;
+  font-family: 'Work Sans', sans-serif;
   font-weight: 600;
 }
 
