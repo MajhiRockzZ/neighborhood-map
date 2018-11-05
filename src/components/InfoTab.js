@@ -32,7 +32,7 @@ class InfoTab extends Component {
   }
 
   componentDidMount() {
-    fetch(`https://api.foursquare.com/v2/venues/search?ll=33.888928,-118.393534&client_id=${FOURSQUARE_CLIENT_ID}&client_secret=${FOURSQUARE_CLIENT_SECRET}&v=20130815&near&query=${this.props.currentPlace}&limit=1`)
+    fetch(`https://api.foursquare.com/v2/venues/search?ll=23.3441,85.309562 &client_id=${FOURSQUARE_CLIENT_ID}&client_secret=${FOURSQUARE_CLIENT_SECRET}&v=20130815&near&query=${this.props.currentPlace}&limit=1`)
       .then((res) => res.text())
       .then((text) => {
         let formattedResponse = JSON.parse(text).response.venues[0];
