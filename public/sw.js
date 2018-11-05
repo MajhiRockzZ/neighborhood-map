@@ -14,4 +14,10 @@ self.addEventListener('install', function (event) {
     '../src/components/Panorama.js',
     '../src/components/Search.js'
   ]
+
+  event.waitUntil(
+    caches.open(staticCacheName).then(function (cache) {
+      return cache.addAll(urlsToCache);
+    })
+  )
 });
