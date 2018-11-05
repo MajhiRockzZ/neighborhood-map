@@ -1,5 +1,3 @@
-<img src="src/logo.svg" align="right" height="200" width="200" />
-
 # Neighborhood Map (React)
 
  Neighborhood Map is a single page application featuring a map of my neighborhood where i would like to visit. The map including highlighted locations, third-party data about those locations and various ways to browse the content.
