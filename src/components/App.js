@@ -11,10 +11,28 @@ class App extends Component {
   state = {
     placesList: [
       {
-        title: "Bhagwan Birsa Biological Park",
-        placeType: "park",
-        location: {lat: 23.46318, lng: 85.455203},
-        forStreetView: {lat: 23.46318, lng: 85.455203}
+        title: "JD Hi Street Mall",
+        placeType: "shopping_mall",
+        location: {lat: 23.357947, lng: 85.324898},
+        forStreetView: {lat: 23.357947, lng: 85.324898}
+      },
+      {
+        title: "Fun Cinema",
+        placeType: "movie_theater",
+        location: {lat: 23.333093, lng: 85.317121},
+        forStreetView: {lat: 23.333093, lng: 85.317121}
+      },
+      {
+        title: "JSCA International Stadium Complex",
+        placeType: "point_of_interest",
+        location: {lat: 23.310201, lng: 85.274835},
+        forStreetView: {lat: 23.310201, lng: 85.274835}
+      },
+      {
+        title: "Kaveri",
+        placeType: "food",
+        location: {lat: 23.375153, lng: 85.335574},
+        forStreetView: {lat: 23.375153, lng: 85.335574}
       },
       {
         title: "Ranchi Lake",
@@ -22,24 +40,6 @@ class App extends Component {
         location: {lat: 23.368364, lng: 85.318145},
         forStreetView: {lat: 23.368364, lng: 85.318145}
       },
-      {
-        title: "Ranchi Science Centre",
-        placeType: "museum",
-        location: {lat: 23.406945, lng: 85.340316},
-        forStreetView: {lat: 23.406945, lng: 85.340316}
-      },
-      {
-        title: "Shree Krishna Singh Park",
-        placeType: "park",
-        location: {lat: 23.336656, lng: 85.319276},
-        forStreetView: {lat: 23.336656, lng: 85.319276}
-      },
-      {
-        title: "Baheya Waterfall",
-        placeType: "point_of_interest",
-        location: {lat: 23.362652, lng: 85.491187},
-        forStreetView: {lat: 23.362652, lng: 85.491187}
-      }
     ],
     filterQuery: '',
     imageSrc: '',
@@ -124,7 +124,7 @@ class App extends Component {
                 loading.</div>}
               containerElement={<div className="map-order"/>}
               mapElement={<div style={{height: `100%`}}/>}
-              center={{lat: 23.336656, lng: 85.319276}}
+              center={{lat: 23.357947, lng: 85.324898}}
               zoom={14}
               filteredPlaces={this.state.filteredPlaces}
               setClicked={this.setClicked.bind(this)}
