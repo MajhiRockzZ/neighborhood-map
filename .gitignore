@@ -26,7 +26,7 @@ yarn-error.log*
 /doc/
 
 # API Key
-/src/api/
+# /src/api/
 
 # IntelliJ project files
 .idea
