@@ -23,20 +23,10 @@ self.addEventListener('install', function (event) {
 });
 
 self.addEventListener('fetch', function(event) {
+  console.log(event.request.url);
   event.respondWith(
     caches.match(event.request).then(function(response) {
-      if (response) {
-        return response;
-      }
-      return fetch(event.request).then(function(response) {
-        // check whether event request was resolved successfully
-        if (response.status !== 404) {
-          return caches.open(staticCacheName).then(function(cache) {
-            cache.put(event.request.url, response.clone());
-            return response;
-          });
-        }
-      });
+      return response || fetch(event.request);
     })
   );
 });
