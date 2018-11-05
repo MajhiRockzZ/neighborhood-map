@@ -42,4 +42,4 @@ Please make sure to update tests as appropriate.
 
 ## 💐 Acknowledgments
 
-Special thanks to Udacity Team.
+Special thanks to Udacity and Google Scholarships team.
