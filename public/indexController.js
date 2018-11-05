@@ -1,9 +1,15 @@
 (function () {
   'use strict';
+  // Check for browser support of service worker
   if (navigator.serviceWorker) {
-    navigator.serviceWorker.register('sw.js')
+    navigator.serviceWorker.register('service-worker.js')
+      .then(function (registration) {
+        // Successful registration
+        console.log('Hooray. Registration successful, scope is:', registration.scope);
+      })
       .catch(function (error) {
-        console.log("Registration failed:", error);
+        // Failed registration, service worker won’t be installed
+        console.log('Whoops. Service worker registration failed, error:', error);
       });
   }
 })();
